@@ -1,0 +1,22 @@
+.box {
+  width: 300px;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  border-radius: 10px;
+  background: #fff;
+  vertical-align: top;
+}
+
+dt {
+  font-weight: 500;
+}
+
+.titleOngoing {
+  color: green;
+}
+
+.titleCompleted {
+  color: blue;
+}
