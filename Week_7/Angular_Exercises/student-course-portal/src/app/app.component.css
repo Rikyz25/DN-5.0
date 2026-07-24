@@ -1,0 +1,12 @@
+.page-shell {
+  padding: 24px;
+}
+
+.spinner {
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: #102a43;
+  color: #fff;
+  border-radius: 10px;
+  width: fit-content;
+}

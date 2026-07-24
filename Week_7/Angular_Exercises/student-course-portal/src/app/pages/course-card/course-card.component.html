@@ -1,0 +1,10 @@
+<article class="course-card" [ngClass]="cardClasses" [ngStyle]="{ borderLeftColor: borderColor }" appHighlight="lightblue">
+  <h3>{{ course.name }}</h3>
+  <p>{{ course.code }}</p>
+  <p>{{ course.credits | creditLabel }}</p>
+  <p *ngIf="course.gradeStatus === 'passed'">Passed</p>
+  <p *ngIf="course.gradeStatus === 'failed'">Failed</p>
+  <p *ngIf="course.gradeStatus === 'pending'">Pending</p>
+  <button (click)="enroll()">Enroll</button>
+  <button type="button" (click)="isExpanded = !isExpanded">Show Details</button>
+</article>

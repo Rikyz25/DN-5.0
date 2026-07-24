@@ -1,0 +1,4 @@
+.course-grid {
+  display: grid;
+  gap: 16px;
+}

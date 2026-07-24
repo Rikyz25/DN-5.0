@@ -1,0 +1,7 @@
+.form-card {
+  display: grid;
+  gap: 12px;
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+}

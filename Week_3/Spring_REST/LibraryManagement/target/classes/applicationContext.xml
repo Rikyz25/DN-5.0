@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!-- 1. Enable Component Scanning (Exercise 6) -->
+    <!-- This scans the specified packages for annotated classes (@Component, @Service, @Repository) -->
+    <context:component-scan base-package="com.library" />
+
+    <!-- 2. Enable AspectJ Auto-Proxy Support (Exercise 3 and 8) -->
+    <!-- This allows Spring to process classes annotated with @Aspect and generate dynamic proxies -->
+    <aop:aspectj-autoproxy />
+
+    <!-- ========================================================================================== -->
+    <!-- THE FOLLOWING EXPLICIT BEAN DEFINITIONS CORRESPOND TO EXERCISES 1, 2, 5, 7                 -->
+    <!-- Note: When using component scanning, Spring automatically creates beans for BookService and -->
+    <!-- BookRepository. We define separate XML-wired beans below to demonstrate XML-based DI.     -->
+    <!-- ========================================================================================== -->
+
+    <!-- Base BookRepository bean definition -->
+    <bean id="bookRepositoryXml" class="com.library.repository.BookRepository" />
+
+    <!-- Constructor Injection Configuration (Exercise 7 Scenario) -->
+    <bean id="bookServiceConstructorInjection" class="com.library.service.BookService">
+        <constructor-arg ref="bookRepositoryXml" />
+    </bean>
+
+    <!-- Setter Injection Configuration (Exercise 2, 5, 7 Scenario) -->
+    <bean id="bookServiceSetterInjection" class="com.library.service.BookService">
+        <!-- Calls default constructor first, then calls setBookRepository(bookRepositoryXml) -->
+        <property name="bookRepository" ref="bookRepositoryXml" />
+    </bean>
+
+</beans>

@@ -1,0 +1,12 @@
+<section class="course-page">
+  <p *ngIf="loading$ | async">Loading courses...</p>
+  <p *ngIf="error$ | async as error">{{ error }}</p>
+
+  <div class="course-grid">
+    <app-course-card
+      *ngFor="let c of courses$ | async; trackBy: trackByCourseId"
+      [course]="c"
+      (enrollRequested)="onEnroll($event)"
+    ></app-course-card>
+  </div>
+</section>

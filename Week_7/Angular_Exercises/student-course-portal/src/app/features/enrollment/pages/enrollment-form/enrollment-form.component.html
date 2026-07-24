@@ -1,0 +1,14 @@
+<form #enrollForm="ngForm" (ngSubmit)="onSubmit(enrollForm)" class="form-card">
+  <label>Student Name <input name="studentName" [(ngModel)]="model.studentName" required minlength="3" /></label>
+  <label>Student Email <input name="studentEmail" [(ngModel)]="model.studentEmail" required email /></label>
+  <label>Course Id <input name="courseId" type="number" [(ngModel)]="model.courseId" required /></label>
+  <label>
+    Preferred Semester
+    <select name="preferredSemester" [(ngModel)]="model.preferredSemester">
+      <option>Odd</option>
+      <option>Even</option>
+    </select>
+  </label>
+  <label><input type="checkbox" name="agreeToTerms" [(ngModel)]="model.agreeToTerms" /> Agree to terms</label>
+  <button type="submit" [disabled]="enrollForm.invalid">Submit</button>
+</form>

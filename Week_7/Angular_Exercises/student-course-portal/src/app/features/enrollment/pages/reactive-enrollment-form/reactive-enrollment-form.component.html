@@ -1,0 +1,11 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-card">
+  <input formControlName="studentName" placeholder="Student Name" />
+  <input formControlName="studentEmail" placeholder="Student Email" />
+  <input formControlName="courseCode" placeholder="Course Code" />
+  <select formControlName="semester">
+    <option>Odd</option>
+    <option>Even</option>
+  </select>
+  <textarea formControlName="notes" placeholder="Notes"></textarea>
+  <button type="submit" [disabled]="form.invalid">Submit</button>
+</form>

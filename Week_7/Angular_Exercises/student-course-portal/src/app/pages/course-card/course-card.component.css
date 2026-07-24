@@ -1,0 +1,20 @@
+.course-card {
+  border: 1px solid #cbd2d9;
+  border-left-width: 6px;
+  border-radius: 12px;
+  padding: 16px;
+  background: #fff;
+  transition: 0.2s ease;
+}
+
+.card--enrolled {
+  background: #ecfdf3;
+}
+
+.card--full {
+  box-shadow: inset 0 0 0 1px #102a43;
+}
+
+.expanded {
+  min-height: 220px;
+}
